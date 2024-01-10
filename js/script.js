@@ -9,17 +9,26 @@ const numberOfCells = rows * cols;
 
 //FUNZIONI
 const createCell = (content) => {
-    const cellGenerator = `<div class="cell">${content}<div>`
+    const cellGenerator = document.createElement('div')
+    cellGenerator.className = 'cell'
+    cellGenerator.innerText = content;
     return cellGenerator;
-
 }
+
+
 //Svolgimento programma
 for (let i = 1; i <= numberOfCells; i++) {
     const cell = createCell(i)
-    console.log(cell)
+
+    cell.addEventListener('click', function () {
+        console.log(numberOfCells)
+        cell.classList.toggle('clicked')
+
+    })
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        grid.innerHTML += cell
+        grid.appendChild(cell)
+
     })
 
 }
@@ -27,9 +36,6 @@ for (let i = 1; i <= numberOfCells; i++) {
 
 
 
-/*const createCell = (content) => {
-    const cellGenerator = document.createElement('div')
-    cellGenerator.className = 'cell'
-    cellGenerator.innerText = content;
-    console.log(cellGenerator)
-    return cellGenerator;*/
+
+
+
