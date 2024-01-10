@@ -21,8 +21,9 @@ for (let i = 1; i <= numberOfCells; i++) {
     const cell = createCell(i)
 
     cell.addEventListener('click', function () {
-        console.log(numberOfCells)
         cell.classList.toggle('clicked')
+        console.log(cell.innerText)
+
 
     })
     form.addEventListener('submit', (e) => {
